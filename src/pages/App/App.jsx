@@ -4,13 +4,13 @@ import AuthPage from '../AuthPage/AuthPage'
 
 
 function App() {
-
+  const [user, setUser] = useState(null);
   return (
    <>
-   <div class="text-3xl font-bold underline">
-    Hello World
-   </div>
-   <AuthPage />
+   {user ? <>
+   
+   </> : <AuthPage setUser={setUser}/>
+   } 
    </>
   )
 }
