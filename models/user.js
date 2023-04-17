@@ -18,12 +18,11 @@ const userSchema = new Schema({
     minLength: 3,
     required: true
   },
-  fitnessLog: [
+  fitnessLog:
     {
       type: mongoose.Types.ObjectId,
       ref: 'FitnessLog'
     }
-  ]
 }, {
   timestamps: true,
   toJSON: {
