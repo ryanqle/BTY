@@ -9,7 +9,11 @@ const fitnessLogSchema = new Schema({
     session: [{
         type: mongoose.Types.ObjectId,
         ref: 'Session'
-    }]
+    }],
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: "User"
+    }
 }, {
     timestamps: true,
 });
