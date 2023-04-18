@@ -20,9 +20,7 @@ export default function FitnessLog({user}) {
     return (
         <>
         <p>{fitnessLog.logName}</p>
-        <button>Create New Workout</button>
-        <Link to="/fitnesslog/exercise" className="button btn-sm">Create New Workout</Link>
-        <Session />
+        <Link to="/fitnesslog/sessionform" className="button btn-sm"><button>Create New Session</button></Link>
 
         <div>If past workouts not empty, display past workouts below</div>
         <PastExercise />

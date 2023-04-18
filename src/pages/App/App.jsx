@@ -6,6 +6,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import FitnessLog from '../FitnessLog/FitnessLog';
 import Profile from '../Profile/Profile';
 import HomePage from '../HomePage/HomePage';
+import Session from '../Session/Session';
+import SessionForm from '../../components/SessionForm/SessionForm'
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   <NavBar user={user} setUser={setUser}/>
    <Routes>
     <Route path="/fitnesslog" element={<FitnessLog user={user}/>}></Route>
+    <Route path="/fitnesslog/sessionform" element={<SessionForm user={user}/>}></Route>
     <Route path="/*" element={<Navigate to="/fitnesslog" />} />
    </Routes>
    </> : <>
