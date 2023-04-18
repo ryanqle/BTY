@@ -8,7 +8,8 @@ module.exports = {
   async function index(req,res){
     try{
     const user = await User.findById(req.query.userId)
-    const fitnesslog = await FitnessLog.find({user: user._id});
+    const fitnesslog = await FitnessLog.findOne({user: user._id});
+    console.log(fitnesslog)
     res.json(fitnesslog)
     }
     catch (error){
