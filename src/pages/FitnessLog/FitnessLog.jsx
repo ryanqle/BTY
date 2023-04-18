@@ -2,11 +2,12 @@ import React from 'react'
 import PastExercise from '../../components/PastExercise/PastExercise'
 import { useState, useEffect, useRef } from 'react';
 import * as fitnessLogAPI from '../../utilities/fitnesslogs-api';
+import { Link } from 'react-router-dom'
+import Session from '../Session/Session'
 
 export default function FitnessLog({user}) {
-    //use state
-    //spread operator show map of past exericises
     const [fitnessLog, setFitnessLog] = useState({});
+
 
     useEffect(function() {
         async function getUserFitnessLog(){
@@ -15,14 +16,14 @@ export default function FitnessLog({user}) {
         }
         getUserFitnessLog();
     }, []);
-    console.log(fitnessLog)
 
     return (
         <>
-        <p>{user._id}</p>
         <p>{fitnessLog.logName}</p>
-        <h1>My Workouts</h1>
         <button>Create New Workout</button>
+        <Link to="/fitnesslog/exercise" className="button btn-sm">Create New Workout</Link>
+        <Session />
+
         <div>If past workouts not empty, display past workouts below</div>
         <PastExercise />
         </>
