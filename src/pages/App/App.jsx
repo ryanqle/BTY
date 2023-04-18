@@ -5,6 +5,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import FitnessLog from '../FitnessLog/FitnessLog';
 import Profile from '../Profile/Profile';
+import HomePage from '../HomePage/HomePage';
 
 
 function App() {
@@ -21,11 +22,12 @@ function App() {
     <Route path="/*" element={<Navigate to="/fitnesslog" />} />
    </Routes>
    </> : <>
-   <h1>Welcome to BTY</h1>
-   <div>
-   Welcome to Better Than Yesterday, the ultimate fitness app that will help you become the best version of yourself! With a wide range of features, including personalized workout plans and progress monitoring, our app is designed to help you stay motivated and on track towards your goals.
-   </div>
-   <AuthPage setUser={setUser}/>
+   <Routes>
+    <Route path="/" element={<HomePage />}></Route>
+    <Route path="/authpage" element={<AuthPage setUser={setUser}/>}></Route>
+    <Route path="/*" element={<Navigate to="/" />} />
+   </Routes>
+   
    </>
    } 
    </>
