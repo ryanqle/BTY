@@ -13,7 +13,9 @@ async function create(req, res){
     const user = await User.create(req.body)
     const fitnessLog = await FitnessLog.create({ user: req.body._id })
     user.fitnessLog = fitnessLog._id
+    fitnessLog.user = user._id
     await user.save();
+    await fitnessLog.save()
     const token = createJWT(user)
     res.json(token)
   } catch (error) {

@@ -13,6 +13,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //routes
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/fitnesslogs', require('./routes/api/fitnesslogs'));
+
+
 //catch all
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
