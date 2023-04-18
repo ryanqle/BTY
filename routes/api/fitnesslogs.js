@@ -6,6 +6,9 @@ const fitnessLogCtrl = require('../../controllers/api/fitnesslogs');
 
 // GET /api/fitnesslogs
 router.get('/', fitnessLogCtrl.index)
+router.get('/:id', fitnessLogCtrl.showSession)
+
+router.post('/session', fitnessLogCtrl.createSession)
 
 
 module.exports = router;

@@ -1,16 +1,17 @@
 const User = require('../../models/user')
 const FitnessLog = require('../../models/fitnesslog')
+const Session = require('../../models/session')
 
 module.exports = {
   index,
-  createExercise
+  createSession,
+  showSession
   }
 
   async function index(req,res){
     try{
     const user = await User.findById(req.query.userId)
     const fitnesslog = await FitnessLog.findOne({user: user._id});
-    console.log(fitnesslog)
     res.json(fitnesslog)
     }
     catch (error){
@@ -18,14 +19,20 @@ module.exports = {
     }
   }
 
-  async function createExercise(req,res){
+  async function createSession(req,res){
     try{
       const user = await User.findById(req.query.userId)
       const fitnesslog = await FitnessLog.findOne({user: user._id});
-      console.log(fitnesslog)
-      res.json(fitnesslog)
+      const session = await Session.create({sessionName: req.body.sessionName});
+      fitnesslog.session.push(session._id)
+      await fitnesslog.save()
+      res.json(session)
       }
       catch (error){
         console.log(error)
       }
+  }
+
+  async function showSession(req,res){
+    
   }

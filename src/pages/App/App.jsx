@@ -22,6 +22,7 @@ function App() {
    <Routes>
     <Route path="/fitnesslog" element={<FitnessLog user={user}/>}></Route>
     <Route path="/fitnesslog/sessionform" element={<SessionForm user={user}/>}></Route>
+    <Route path="/fitnesslog/:id" element={<Session user={user}/>}></Route>
     <Route path="/*" element={<Navigate to="/fitnesslog" />} />
    </Routes>
    </> : <>

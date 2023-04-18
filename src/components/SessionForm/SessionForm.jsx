@@ -15,7 +15,9 @@ export default function SessionForm({ user }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-        await fitnessLogAPI.createSession(session)
+        const newSession = await fitnessLogAPI.createSession(session, user._id)
+        console.log(newSession)
+        
     } catch {
     }
   }
