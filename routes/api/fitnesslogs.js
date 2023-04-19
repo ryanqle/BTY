@@ -9,6 +9,7 @@ router.get('/', fitnessLogCtrl.index)
 router.get('/:id', fitnessLogCtrl.getSession)
 
 router.post('/session', fitnessLogCtrl.createSession)
+router.post('/:id/end', fitnessLogCtrl.endWorkout)
 
 
 module.exports = router;

@@ -26,8 +26,11 @@ const sessionSchema = new Schema({
     type: String,
     default: 'Workout Session'
   },
-  exercise: [exerciseSchema]
-
+  exercise: [exerciseSchema],
+  isEnded: {
+    type: Boolean,
+    default: false
+  }
 }, {
   timestamps: true,
 });

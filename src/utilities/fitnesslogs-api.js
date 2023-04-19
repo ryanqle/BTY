@@ -12,3 +12,7 @@ export function createSession(session, userId) {
 export function getSession(sessionId){
     return sendRequest(`${BASE_URL}/${sessionId}`)
 }
+
+export function endWorkout(sessionId){
+    return sendRequest(`${BASE_URL}/${sessionId}/end`, 'POST')
+}

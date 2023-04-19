@@ -5,7 +5,8 @@ const Session = require('../../models/session')
 module.exports = {
   index,
   createSession,
-  getSession
+  getSession,
+  endWorkout
   }
 
   async function index(req,res){
@@ -41,4 +42,11 @@ module.exports = {
       console.log(error)
     }
 
+  }
+
+  async function endWorkout(req,res){
+    const session = await Session.findById(req.params.id);
+    session.isEnded = true;
+    await session.save();
+    res.json(session)
   }
