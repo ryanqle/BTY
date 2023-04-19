@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as fitnessLogAPI from '../../utilities/fitnesslogs-api';
 
 export default function SessionForm({ user }) {
@@ -6,6 +7,7 @@ export default function SessionForm({ user }) {
     sessionName: '',
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   function handleChange(evt) {
     setSession({ ...session, [evt.target.name]: evt.target.value });
@@ -15,9 +17,9 @@ export default function SessionForm({ user }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-        const newSession = await fitnessLogAPI.createSession(session, user._id)
-        console.log(newSession)
-        
+        const newSession = await fitnessLogAPI.createSession(session, user._id);
+        // await fitnessLogAPI.getSession(newSession._id)
+        navigate(`/fitnesslog/${newSession._id}`);
     } catch {
     }
   }

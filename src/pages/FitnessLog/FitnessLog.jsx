@@ -8,7 +8,6 @@ import Session from '../Session/Session'
 export default function FitnessLog({user}) {
     const [fitnessLog, setFitnessLog] = useState({});
 
-
     useEffect(function() {
         async function getUserFitnessLog(){
             const userFitnessLog = await fitnessLogAPI.getFitnessLog(user._id);
@@ -21,9 +20,10 @@ export default function FitnessLog({user}) {
         <>
         <p>{fitnessLog.logName}</p>
         <Link to="/fitnesslog/sessionform" className="button btn-sm"><button>Create New Session</button></Link>
-
-        <div>If past workouts not empty, display past workouts below</div>
-        <PastExercise />
+        {fitnessLog.session ? 
+        fitnessLog.session.map((s) => (<PastExercise sessionId={s}/>))
+        :
+         ''}
         </>
     )
 }

@@ -6,7 +6,7 @@ const fitnessLogCtrl = require('../../controllers/api/fitnesslogs');
 
 // GET /api/fitnesslogs
 router.get('/', fitnessLogCtrl.index)
-router.get('/:id', fitnessLogCtrl.showSession)
+router.get('/:id', fitnessLogCtrl.getSession)
 
 router.post('/session', fitnessLogCtrl.createSession)
 

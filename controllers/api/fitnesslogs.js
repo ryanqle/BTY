@@ -5,7 +5,7 @@ const Session = require('../../models/session')
 module.exports = {
   index,
   createSession,
-  showSession
+  getSession
   }
 
   async function index(req,res){
@@ -33,6 +33,13 @@ module.exports = {
       }
   }
 
-  async function showSession(req,res){
-    
+  async function getSession(req,res){
+    try{
+      console.log(req.params.id)
+      const session = await Session.findById(req.params.id);
+      res.json(session);
+    } catch (error){
+      console.log(error)
+    }
+
   }

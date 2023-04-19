@@ -8,3 +8,7 @@ export function getFitnessLog(userId){
 export function createSession(session, userId) {
     return sendRequest(`${BASE_URL}/session?userId=${userId}`, 'POST', session)
 }
+
+export function getSession(sessionId){
+    return sendRequest(`${BASE_URL}/${sessionId}`)
+}
