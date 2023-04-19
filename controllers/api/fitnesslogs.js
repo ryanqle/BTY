@@ -35,7 +35,6 @@ module.exports = {
 
   async function getSession(req,res){
     try{
-      console.log(req.params.id)
       const session = await Session.findById(req.params.id);
       res.json(session);
     } catch (error){
