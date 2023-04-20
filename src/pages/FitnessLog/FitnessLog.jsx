@@ -23,7 +23,7 @@ export default function FitnessLog({user}) {
         <p>{fitnessLog.logName}</p>
         <Link to="/fitnesslog/sessionform" className="button btn-sm"><button>Create New Session</button></Link>
         {fitnessLog.session ? 
-        fitnessLog.session.map((s) => (<PastExercise setUpdateLog={setUpdateLog} sessionId={s} user={user}/>))
+        fitnessLog.session.map((s) => (<PastExercise key={s} setUpdateLog={setUpdateLog} sessionId={s} user={user}/>))
         :
          ''}
         </>
