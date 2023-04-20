@@ -6,12 +6,14 @@ const Workout = require('./models/workout');
 const User = require('./models/user')
 const Session = require('./models/session');
 const FitnessLog = require('./models/fitnesslog');
+const Exercise = require('./models/exercise');
 
 (async function() {
 
     await User.deleteMany({});
     await Session.deleteMany({});
     await FitnessLog.deleteMany({});
+    await Exercise.deleteMany({});
 
     await Category.deleteMany({});
     const categories = await Category.create([
