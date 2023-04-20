@@ -6,13 +6,23 @@ import SignUpForm from '../../components/SignUpForm/SignUpForm';
 export default function AuthPage({setUser}) {
     const [showLogin, setShowLogin] = useState(true);
   return (
-    <div>
-    {showLogin ? 
-    <div><LoginForm setUser={setUser}/><p>Don't have an account? <span onClick={() => setShowLogin(!showLogin)}>Sign Up</span></p>
+<div>
+  {showLogin ? 
+    <div className="flex justify-center items-center h-screen">
+      <div>
+        <LoginForm setUser={setUser}/>
+        <p>Don't have an account? <span className='text-blue-500' onClick={() => setShowLogin(!showLogin)}>Sign Up</span></p>
+      </div>
     </div> 
     : 
-    <div><SignUpForm setUser={setUser}/><p>Already have an account? <span onClick={() => setShowLogin(!showLogin)}>Login</span></p>
-    </div>}
+    <div className="flex justify-center items-center h-screen">
+      <div>
+        <SignUpForm setUser={setUser}/>
+        <p>Already have an account? <span className='text-blue-500' onClick={() => setShowLogin(!showLogin)}>Login</span></p>
+      </div>
     </div>
+  }
+</div>
+
   )
 }

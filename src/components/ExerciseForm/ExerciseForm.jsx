@@ -70,7 +70,7 @@ export default function ExerciseForm({ setShowAddExercise }) {
 
           {selectedCategory && (
             <div>
-              <label className='block text-gray-700 text-sm font-bold mb-2'>Select a workout:</label>
+              <label className='pt-4 block text-gray-700 text-sm font-bold mb-2'>Select a workout:</label>
               <select className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500' id="workout" value={selectedWorkout} onChange={handleWorkoutChange}>
                 <option value="">Select a workout</option>
                 {workout.map(w => (
@@ -79,13 +79,13 @@ export default function ExerciseForm({ setShowAddExercise }) {
               </select>
             </div>
           )}
-          <label className='block text-gray-700 text-sm font-bold mb-2'>Sets:</label>
+          <label className='pt-4 block text-gray-700 text-sm font-bold mb-2'>Sets:</label>
           <input className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500' type="number" value={sets} onChange={(evt) => setSets(evt.target.value)} />
-          <label className='block text-gray-700 text-sm font-bold mb-2'>Reps:</label>
+          <label className='pt-4 block text-gray-700 text-sm font-bold mb-2'>Reps:</label>
           <input className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500' type="number" value={reps} onChange={(evt) => setReps(evt.target.value)} />
-          <div className="flex justify-between">
-          <button className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300" type="submit">+</button>
-          <button className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"type="button" onClick={() => setShowAddExercise(false)}>Cancel</button>
+          <div className="flex justify-between pt-4">
+          <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" type="submit">+</button>
+          <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"type="button" onClick={() => setShowAddExercise(false)}>Cancel</button>
           </div>
         </form>
       </div>

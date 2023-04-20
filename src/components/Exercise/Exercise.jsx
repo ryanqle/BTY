@@ -17,9 +17,9 @@ export default function Exercise({exerciseId}) {
   }, [])
   
   return (
-    <div>
+    <div className='pb-2 mx-auto w-2/3'>
       {exercise && exercise.exerciseName ? 
-      <div>
+      <div className="border border-gray-400  rounded p-4 flex justify-between flex-wrap w-full">
       <p>{exercise.exerciseName[0].exerciseName}</p>
       <p>{exercise.categoryName[0].categoryName}</p>
       <p>Sets: {exercise.sets}</p>

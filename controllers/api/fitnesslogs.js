@@ -45,7 +45,7 @@ async function createSession(req, res) {
 
 async function getSession(req, res) {
   try {
-    const session = await Session.findById(req.params.id);
+    const session = await Session.findById(req.params.id).sort({createdAt: -1});
     res.json(session);
   } catch (error) {
     console.log(error)
