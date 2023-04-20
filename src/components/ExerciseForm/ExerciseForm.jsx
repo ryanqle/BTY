@@ -51,9 +51,9 @@ export default function ExerciseForm({ setShowAddExercise }) {
       }
       await fitnessLogAPI.addExercise(id, formData);
       setShowAddExercise(false);
-  } catch (error){
-    console.log(error)
-  }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -84,8 +84,8 @@ export default function ExerciseForm({ setShowAddExercise }) {
           <label className='pt-4 block text-gray-700 text-sm font-bold mb-2'>Reps:</label>
           <input className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500' type="number" value={reps} onChange={(evt) => setReps(evt.target.value)} />
           <div className="flex justify-between pt-4">
-          <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" type="submit">+</button>
-          <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"type="button" onClick={() => setShowAddExercise(false)}>Cancel</button>
+            <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" type="submit">+</button>
+            <button className="w-1/4 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" type="button" onClick={() => setShowAddExercise(false)}>Cancel</button>
           </div>
         </form>
       </div>

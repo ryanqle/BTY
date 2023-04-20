@@ -14,7 +14,7 @@ export default function FitnessLog({ user }) {
     async function getUserFitnessLog() {
       const userFitnessLog = await fitnessLogAPI.getFitnessLog(user._id);
       userFitnessLog.session.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      setFitnessLog({...userFitnessLog, session: userFitnessLog.session.reverse()});
+      setFitnessLog({ ...userFitnessLog, session: userFitnessLog.session.reverse() });
     }
     getUserFitnessLog();
     setUpdateLog(false)
@@ -45,13 +45,13 @@ export default function FitnessLog({ user }) {
         )}
       </div>
       <Link to="/fitnesslog/sessionform" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><button>Create New Session</button></Link>
-      
+
       <div className='pt-10'>
-      {fitnessLog.session ?
-        fitnessLog.session.map((s) => (<PastExercise key={s} setUpdateLog={setUpdateLog} sessionId={s} user={user} />))
-        :
-        'No Past Exercises Logged'}
-        </div>
+        {fitnessLog.session ?
+          fitnessLog.session.map((s) => (<PastExercise key={s} setUpdateLog={setUpdateLog} sessionId={s} user={user} />))
+          :
+          'No Past Exercises Logged'}
+      </div>
     </>
   )
 }
