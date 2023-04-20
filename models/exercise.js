@@ -15,6 +15,10 @@ const exerciseSchema = new Schema({
     category: {
         type: mongoose.Types.ObjectId,
         ref: "Category"
+    },
+    session: {
+      type: mongoose.Types.ObjectId,
+        ref: "Session"
     }
   }, {
     timestamps: true,
