@@ -12,9 +12,6 @@ const exerciseSchema = new Schema({
     reps: {
       type: Number
     },
-    weight: {
-      type: Number
-    },
     category: {
         type: mongoose.Types.ObjectId,
         ref: "Category"

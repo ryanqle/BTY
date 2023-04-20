@@ -19,7 +19,8 @@ export default function SessionForm({ user }) {
     try {
         const newSession = await fitnessLogAPI.createSession(session, user._id);
         navigate(`/fitnesslog/${newSession._id}`);
-    } catch {
+    } catch (error){
+      console.log(error)
     }
   }
 

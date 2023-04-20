@@ -16,3 +16,15 @@ export function getSession(sessionId){
 export function endWorkout(sessionId){
     return sendRequest(`${BASE_URL}/${sessionId}/end`, 'POST')
 }
+
+export function getCategories(){
+    return sendRequest(`${BASE_URL}/categories`)
+}
+
+export function getWorkouts(category){
+    return sendRequest(`${BASE_URL}/workouts?category=${category}`)
+}
+
+export function addExercise(sessionId, formData){
+    return sendRequest(`${BASE_URL}/${sessionId}/exercise`, 'POST', formData)
+}
