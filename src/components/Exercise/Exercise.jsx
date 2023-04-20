@@ -15,7 +15,7 @@ export default function Exercise({exerciseId}) {
     }
     getExercises()
   }, [])
-  console.log(exercise)
+  
   return (
     <div>
       {exercise && exercise.exerciseName ? 

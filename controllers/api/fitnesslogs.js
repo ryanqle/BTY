@@ -14,7 +14,8 @@ module.exports = {
   getWorkouts,
   addExercise,
   getAllExercises,
-  deleteSession
+  deleteSession,
+  updateLogName
 }
 
 async function index(req, res) {
@@ -112,6 +113,18 @@ async function deleteSession(req,res){
     await FitnessLog.updateOne({ "session": { "$in": [sessionId] } }, { "$pull": { "session": sessionId } });
     res.json(session)
   } catch (error) {
+    console.log(error)
+  }
+}
+
+async function updateLogName(req,res){
+  try {
+    const fitnesslog = await FitnessLog.findOne({ user: req.query.userId });
+    fitnesslog.logName = req.body.fitnessLogName;
+    await fitnesslog.save();
+    res.json(fitnesslog)
+  }
+  catch (error) {
     console.log(error)
   }
 }

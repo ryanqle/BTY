@@ -36,3 +36,7 @@ export function getExercise(sessionId, exerciseId){
 export function deleteSession(sessionId){
     return sendRequest(`${BASE_URL}/${sessionId}`, 'DELETE')
 }
+
+export function updateFitnessLog(fitnessLogName, userId){
+    return sendRequest(`${BASE_URL}?userId=${userId}`, 'PUT', fitnessLogName)
+}
