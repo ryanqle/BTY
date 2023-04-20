@@ -93,23 +93,23 @@ async function addExercise(req, res) {
   }
 }
 
-async function getAllExercises(req,res){
+async function getAllExercises(req, res) {
   try {
     const exercise = await Exercise.findById(req.query.exercise).populate('exerciseName')
-    .populate('categoryName')
-    .exec();
+      .populate('categoryName')
+      .exec();
     res.json(exercise.toObject({ virtuals: true }));
   } catch (error) {
     console.log(error)
   }
 }
 
-async function deleteSession(req,res){
+async function deleteSession(req, res) {
   try {
     const sessionId = req.params.id;
     const session = await Session.findById(sessionId);
-    await Exercise.deleteMany({session: sessionId})
-    await Session.deleteOne({_id: sessionId})
+    await Exercise.deleteMany({ session: sessionId })
+    await Session.deleteOne({ _id: sessionId })
     await FitnessLog.updateOne({ "session": { "$in": [sessionId] } }, { "$pull": { "session": sessionId } });
     res.json(session)
   } catch (error) {
@@ -117,10 +117,10 @@ async function deleteSession(req,res){
   }
 }
 
-async function updateLogName(req,res){
+async function updateLogName(req, res) {
   try {
     const fitnesslog = await FitnessLog.findOne({ user: req.query.userId });
-    fitnesslog.logName = req.body.fitnessLogName;
+    fitnesslog.logName = req.body.logName
     await fitnesslog.save();
     res.json(fitnesslog)
   }
