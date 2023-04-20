@@ -32,3 +32,7 @@ export function addExercise(sessionId, formData){
 export function getExercise(sessionId, exerciseId){
     return sendRequest(`${BASE_URL}/${sessionId}/exercise?exercise=${exerciseId}`)
 }
+
+export function deleteSession(sessionId){
+    return sendRequest(`${BASE_URL}/${sessionId}`, 'DELETE')
+}

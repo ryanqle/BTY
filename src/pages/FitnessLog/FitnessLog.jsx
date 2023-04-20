@@ -7,6 +7,7 @@ import Session from '../Session/Session'
 
 export default function FitnessLog({user}) {
     const [fitnessLog, setFitnessLog] = useState({});
+    const [updateLog, setUpdateLog] = useState(false)
 
     useEffect(function() {
         async function getUserFitnessLog(){
@@ -14,14 +15,15 @@ export default function FitnessLog({user}) {
             setFitnessLog(userFitnessLog);
         }
         getUserFitnessLog();
-    }, []);
+        setUpdateLog(false)
+    }, [updateLog]);
 
     return (
         <>
         <p>{fitnessLog.logName}</p>
         <Link to="/fitnesslog/sessionform" className="button btn-sm"><button>Create New Session</button></Link>
         {fitnessLog.session ? 
-        fitnessLog.session.map((s) => (<PastExercise sessionId={s} user={user}/>))
+        fitnessLog.session.map((s) => (<PastExercise setUpdateLog={setUpdateLog} sessionId={s} user={user}/>))
         :
          ''}
         </>

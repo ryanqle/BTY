@@ -13,7 +13,8 @@ module.exports = {
   getCategory,
   getWorkouts,
   addExercise,
-  getAllExercises
+  getAllExercises,
+  deleteSession
 }
 
 async function index(req, res) {
@@ -81,6 +82,8 @@ async function addExercise(req, res) {
   try {
     const session = await Session.findById(req.params.id);
     const newExercise = await Exercise.create(req.body)
+    newExercise.session = session._id;
+    await newExercise.save();
     session.exercise.push(newExercise)
     await session.save()
     res.json(session)
@@ -95,6 +98,19 @@ async function getAllExercises(req,res){
     .populate('categoryName')
     .exec();
     res.json(exercise.toObject({ virtuals: true }));
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function deleteSession(req,res){
+  try {
+    const sessionId = req.params.id;
+    const session = await Session.findById(sessionId);
+    await Exercise.deleteMany({session: sessionId})
+    await Session.deleteOne({_id: sessionId})
+    await FitnessLog.updateOne({ "session": { "$in": [sessionId] } }, { "$pull": { "session": sessionId } });
+    res.json(session)
   } catch (error) {
     console.log(error)
   }

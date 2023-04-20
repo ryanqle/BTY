@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import * as fitnessLogAPI from '../../utilities/fitnesslogs-api';
 import { useNavigate } from 'react-router-dom';
 
-export default function PastExercise({sessionId, user}) {
+export default function PastExercise({sessionId, setUpdateLog}) {
   const navigate = useNavigate();
   const [session, setSession] = useState({})
 
@@ -22,11 +22,21 @@ function handleView() {
     }
   }
 
+  async function handleDelete() {
+    try {
+        await fitnessLogAPI.deleteSession(sessionId)
+        setUpdateLog(true)
+    } catch (error){
+      console.log(error)
+    }
+  }
+
   return (
     <>
     <div>{session.sessionName}</div>
     <div>{new Date(session.updatedAt).toLocaleDateString()}</div>
     <button onClick={handleView}>VIEW</button>
+    <button onClick={handleDelete}>DELETE</button>
     </>
   )
 }

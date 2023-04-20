@@ -11,10 +11,12 @@ router.get('/workouts', fitnessLogCtrl.getWorkouts)
 router.get('/:id/exercise', fitnessLogCtrl.getAllExercises)
 router.get('/:id', fitnessLogCtrl.getSession)
 
-
+// POST /api/fitnesslogs
 router.post('/session', fitnessLogCtrl.createSession)
 router.post('/:id/end', fitnessLogCtrl.endWorkout)
 router.post('/:id/exercise', fitnessLogCtrl.addExercise)
 
+// DELETE /api/fitnesslogs
+router.delete('/:id', fitnessLogCtrl.deleteSession)
 
 module.exports = router;
