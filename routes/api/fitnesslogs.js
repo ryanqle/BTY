@@ -8,6 +8,7 @@ const fitnessLogCtrl = require('../../controllers/api/fitnesslogs');
 router.get('/', fitnessLogCtrl.index)
 router.get('/categories', fitnessLogCtrl.getCategory)
 router.get('/workouts', fitnessLogCtrl.getWorkouts)
+router.get('/:id/exercise', fitnessLogCtrl.getAllExercises)
 router.get('/:id', fitnessLogCtrl.getSession)
 
 

@@ -20,4 +20,17 @@ const exerciseSchema = new Schema({
     timestamps: true,
   });
   
+  exerciseSchema.virtual('exerciseName', {
+    ref: 'Workout',
+    localField: 'exercise',
+    foreignField: '_id',
+  });
+  
+  exerciseSchema.virtual('categoryName', {
+    ref: 'Category',
+    localField: 'category',
+    foreignField: '_id',
+  });
+
+
   module.exports = mongoose.model('Exercise', exerciseSchema);

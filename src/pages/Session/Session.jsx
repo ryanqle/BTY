@@ -18,14 +18,14 @@ export default function Session({ user }) {
       setSession(sessionData);
     }
     getSessionData();
-  }, []);
+  }, [showAddExercise]);
 
   async function handleEndWorkout() {
     await fitnessLogAPI.endWorkout(id);
     navigate(`/fitnesslog`)
   }
 
-  async function handleAddWorkout(){
+  async function handleAddWorkout() {
     setShowAddExercise(true);
   }
 
@@ -34,17 +34,20 @@ export default function Session({ user }) {
       {session && (
         <>
           <p>{session.sessionName}</p>
-          <Exercise />
+          {session.exercise ?
+            session.exercise.map((e) => (<Exercise key={e} exerciseId={e} />))
+            :
+            ''}
           {session.isEnded ? '' :
-          <>
-            {showAddExercise ?
-            <ExerciseForm setShowAddExercise={setShowAddExercise}/> : ''
+            <>
+              {showAddExercise ?
+                <ExerciseForm setShowAddExercise={setShowAddExercise} /> : ''
+              }
+              <button onClick={handleAddWorkout}>ADD EXERCISE</button>
+              <button onClick={handleEndWorkout}>END WORKOUT</button>
+            </>
           }
-            <button onClick={handleAddWorkout}>ADD EXERCISE</button>
-            <button onClick={handleEndWorkout}>END WORKOUT</button>
-          </>
-          }
-          
+
 
         </>
       )}

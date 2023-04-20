@@ -28,3 +28,7 @@ export function getWorkouts(category){
 export function addExercise(sessionId, formData){
     return sendRequest(`${BASE_URL}/${sessionId}/exercise`, 'POST', formData)
 }
+
+export function getExercise(sessionId, exerciseId){
+    return sendRequest(`${BASE_URL}/${sessionId}/exercise?exercise=${exerciseId}`)
+}
