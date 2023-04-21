@@ -11,9 +11,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use(require('./config/checkToken'));
+
 //routes
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/fitnesslogs', require('./routes/api/fitnesslogs'));
+app.use('/api/fitnesslogs', ensureLoggedIn, require('./routes/api/fitnesslogs'));
 
 
 //catch all
