@@ -64,7 +64,7 @@ Written for **General Assembly Software Engineering Immersive Bootcamp**
 
 BTY is a MERN stack single page application. Built over the course of 10-days, the app includes Express backend via AJAX, token-based authentication, and restriction of CUD data to authenticated users.
 
-The name is an homage to my SEI cohort where we strive to be better than yesterday on our journey to becoming software engineers. While on the journey, we shouldn't forego our own physical health while sitting in front of a computer. Thus the idea of a calistenics fitness tracker with workouts that you can do at your desk.
+The name is an homage to my SEI cohort where we strive to be better than yesterday on our journey to becoming software engineers. While on the journey, we shouldn't forego our own physical health while sitting in front of a computer. Thus the idea of a calisthenics fitness tracker with workouts that you can do at your desk.
 
 ### Code Snippets
 
