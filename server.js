@@ -17,6 +17,7 @@ app.use(require('./config/checkToken'));
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/fitnesslogs', ensureLoggedIn, require('./routes/api/fitnesslogs'));
+app.use('/api/workouts', require('./routes/api/workouts'));
 
 
 //catch all

@@ -8,6 +8,7 @@ import Profile from '../Profile/Profile';
 import HomePage from '../HomePage/HomePage';
 import Session from '../Session/Session';
 import SessionForm from '../../components/SessionForm/SessionForm'
+import DescriptionPage from '../DescriptionPage/DescriptionPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
    </> : <>
    <Routes>
     <Route path="/" element={<HomePage />}></Route>
+    <Route path="/workout" element={<DescriptionPage />}></Route>
     <Route path="/authpage" element={<AuthPage setUser={setUser}/>}></Route>
     <Route path="/*" element={<Navigate to="/" />} />
    </Routes>
