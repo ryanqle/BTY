@@ -15,5 +15,12 @@ const workoutSchema = new Schema({
   }, {
     timestamps: true,
   });
+
+  workoutSchema.virtual('categoryName', {
+    ref: 'Category',
+    localField: 'category',
+    foreignField: '_id',
+  });
   
   module.exports = mongoose.model('Workout', workoutSchema);
+

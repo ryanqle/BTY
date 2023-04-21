@@ -22,14 +22,16 @@ function App() {
   <NavBar user={user} setUser={setUser}/>
    <Routes>
     <Route path="/fitnesslog" element={<FitnessLog user={user}/>}></Route>
+    <Route path="/workouts" element={<DescriptionPage />}></Route>
     <Route path="/fitnesslog/sessionform" element={<SessionForm user={user}/>}></Route>
     <Route path="/fitnesslog/:id" element={<Session user={user}/>}></Route>
     <Route path="/*" element={<Navigate to="/fitnesslog" />} />
    </Routes>
    </> : <>
+   <NavBar user={user} setUser={setUser}/>
    <Routes>
     <Route path="/" element={<HomePage />}></Route>
-    <Route path="/workout" element={<DescriptionPage />}></Route>
+    <Route path="/workouts" element={<DescriptionPage />}></Route>
     <Route path="/authpage" element={<AuthPage setUser={setUser}/>}></Route>
     <Route path="/*" element={<Navigate to="/" />} />
    </Routes>
