@@ -95,10 +95,10 @@ async function addExercise(req, res) {
 
 async function getAllExercises(req, res) {
   try {
-    const exercise = await Exercise.findById(req.query.exercise).populate('exerciseName')
-      .populate('categoryName')
+    const exercise = await Exercise.findById(req.query.exercise).populate('exercise')
+      .populate('category')
       .exec();
-    res.json(exercise.toObject({ virtuals: true }));
+    res.json(exercise);
   } catch (error) {
     console.log(error)
   }

@@ -34,7 +34,7 @@ export default function FitnessLog({ user }) {
 
   return (
     <>
-      <div className="mb-4 pt-16">
+      <div className="mb-4 pt-20">
         {editMode ? (
           <form onSubmit={handleSubmit}>
             <input className="border border-blue-500 text-blue-500 rounded-md px-4 py-2 focus:outline-none focus:border-blue-700" type="text" value={newLogName} onChange={handleLogNameChange} />
