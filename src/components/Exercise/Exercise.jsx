@@ -7,7 +7,6 @@ export default function Exercise({ exerciseId }) {
   const { id } = useParams();
   const [exercise, setExercise] = useState({})
 
-
   useEffect(() => {
     async function getExercises() {
       const fetchedExercise = await fitnessLogAPI.getExercise(id, exerciseId);
@@ -15,8 +14,6 @@ export default function Exercise({ exerciseId }) {
     }
     getExercises()
   }, [])
-
-  console.log(exercise)
 
   return (
     <div className='pb-2 mx-auto w-2/3'>

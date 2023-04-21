@@ -52,7 +52,7 @@ export default function Session({ user }) {
           {session.exercise ?
             session.exercise.map((e) => (<Exercise key={e} exerciseId={e} />))
             :
-            ''}
+            'No Workouts Done'}
 
 
 
