@@ -35,12 +35,17 @@ Introducing our fitness tracker, **Better Than Yesterday**, designed to help you
 
 <div align="center">
 
+#### Home Page
 <img src="public/img/HomePage.png"  width="%" height="15%">
 
+#### Signup/Login
 <img src="public/img/LogInForm.png"  width="46%" height="%">
 <img src="public/img/SignUpForm.png"  width="30%" height="15%">
 
+#### User Fitness Log
 <img src="public/img/FitnessLog.png"  width="%" height="15%">
+
+#### Workout Session
 <img src="public/img/SessionView.png"  width="%" height="15%">
 
 <img src="public/img/AddExercise.png"  width="50%" height="15%">
