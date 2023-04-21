@@ -21,11 +21,11 @@ export default function Exercise({ exerciseId }) {
   return (
     <div className='pb-2 mx-auto w-2/3'>
       {exercise && exercise.exercise ?
-        <div className="border border-gray-400  rounded p-4 flex justify-between flex-wrap w-full">
-          <p>{exercise.exercise.exerciseName}</p>
-          <p>{exercise.category.categoryName}</p>
-          <p>Sets: {exercise.sets}</p>
-          <p>Reps: {exercise.reps}</p>
+        <div className="border border-gray-400  rounded p-4 flex justify-evenly flex-wrap w-full">
+          <p className="w-1/4">{exercise.exercise.exerciseName}</p>
+          <p className="w-1/4">{exercise.category.categoryName}</p>
+          <p className="w-1/4">Sets: {exercise.sets}</p>
+          <p className="w-1/4">Reps: {exercise.reps}</p>
         </div>
         :
         'No Workouts Done'}
