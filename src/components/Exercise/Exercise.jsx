@@ -16,9 +16,11 @@ export default function Exercise({ exerciseId }) {
     getExercises()
   }, [])
 
+  console.log(exercise)
+
   return (
     <div className='pb-2 mx-auto w-2/3'>
-      {exercise ?
+      {exercise && exercise.exercise ?
         <div className="border border-gray-400  rounded p-4 flex justify-between flex-wrap w-full">
           <p>{exercise.exercise.exerciseName}</p>
           <p>{exercise.category.categoryName}</p>
@@ -26,7 +28,7 @@ export default function Exercise({ exerciseId }) {
           <p>Reps: {exercise.reps}</p>
         </div>
         :
-        ''}
+        'No Workouts Done'}
 
     </div>
   )

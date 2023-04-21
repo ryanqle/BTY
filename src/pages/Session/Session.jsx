@@ -34,23 +34,26 @@ export default function Session({ user }) {
       {session && (
         <>
           <h1 className="pb-10 text-blue-500 text-2xl">{session.sessionName}</h1>
-          {session.exercise ?
-            session.exercise.map((e) => (<Exercise key={e} exerciseId={e} />))
-            :
-            ''}
           {session.isEnded ? '' :
             <>
               {showAddExercise ?
                 <ExerciseForm setShowAddExercise={setShowAddExercise} /> : ''
               }
-              <div className="fixed bottom-20 w-full flex justify-center">
-                <button className="w-2/3 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" onClick={handleAddWorkout}>ADD EXERCISE</button>
-              </div>
-              <div className="fixed bottom-0 w-full flex justify-center pb-6">
-                <button className="w-2/3 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" onClick={handleEndWorkout}>END WORKOUT</button>
+              <div className="flex justify-between w-2/3 mx-auto">
+                <div className="w-full flex justify-center pb-6">
+                  <button className="w-1/8 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" onClick={handleAddWorkout}>ADD EXERCISE</button>
+                </div>
+                <div className="w-full flex justify-center pb-6">
+                  <button className="w-1/8 bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300" onClick={handleEndWorkout}>END WORKOUT</button>
+                </div>
               </div>
             </>
           }
+          {session.exercise ?
+            session.exercise.map((e) => (<Exercise key={e} exerciseId={e} />))
+            :
+            ''}
+
 
 
         </>
